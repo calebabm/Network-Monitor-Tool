@@ -8,17 +8,31 @@
 
 /* Begin PBXBuildFile section */
 		50C427CE2757CDD700081281 /* Network_Monitor_ToolApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C427CD2757CDD700081281 /* Network_Monitor_ToolApp.swift */; };
-		50C427D02757CDD700081281 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C427CF2757CDD700081281 /* ContentView.swift */; };
+		50C427D02757CDD700081281 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C427CF2757CDD700081281 /* MainView.swift */; };
 		50C427D22757CDD900081281 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50C427D12757CDD900081281 /* Assets.xcassets */; };
 		50C427D52757CDD900081281 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50C427D42757CDD900081281 /* Preview Assets.xcassets */; };
+		50C427DE2757D87000081281 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C427DD2757D87000081281 /* ViewModel.swift */; };
+		50C427E22757FFF800081281 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C427E12757FFF700081281 /* MainViewModel.swift */; };
+		50C427E42758000E00081281 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C427E32758000E00081281 /* DependencyContainer.swift */; };
+		50C427E62758004000081281 /* CoordinatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C427E52758004000081281 /* CoordinatorService.swift */; };
+		50C427E82758005600081281 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C427E72758005600081281 /* NetworkService.swift */; };
+		50C427F427582EAE00081281 /* LocalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C427F327582EAE00081281 /* LocalView.swift */; };
+		50C427F627582F5700081281 /* LocalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C427F527582F5700081281 /* LocalViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		50C427CA2757CDD700081281 /* Network-Monitor-Tool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Network-Monitor-Tool.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50C427CD2757CDD700081281 /* Network_Monitor_ToolApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network_Monitor_ToolApp.swift; sourceTree = "<group>"; };
-		50C427CF2757CDD700081281 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		50C427CF2757CDD700081281 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		50C427D12757CDD900081281 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50C427D42757CDD900081281 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		50C427DD2757D87000081281 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		50C427E12757FFF700081281 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		50C427E32758000E00081281 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
+		50C427E52758004000081281 /* CoordinatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorService.swift; sourceTree = "<group>"; };
+		50C427E72758005600081281 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		50C427F327582EAE00081281 /* LocalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalView.swift; sourceTree = "<group>"; };
+		50C427F527582F5700081281 /* LocalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +66,12 @@
 			isa = PBXGroup;
 			children = (
 				50C427CD2757CDD700081281 /* Network_Monitor_ToolApp.swift */,
-				50C427CF2757CDD700081281 /* ContentView.swift */,
+				50C427EE275800FA00081281 /* Model */,
+				50C427EA2758009200081281 /* View */,
+				50C427E92758008200081281 /* View Model */,
+				50C427EB2758009B00081281 /* Coordinator */,
+				50C427ED275800D600081281 /* Dependency Containter */,
+				50C427EC275800AB00081281 /* Networking */,
 				50C427D12757CDD900081281 /* Assets.xcassets */,
 				50C427D32757CDD900081281 /* Preview Content */,
 			);
@@ -65,6 +84,56 @@
 				50C427D42757CDD900081281 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		50C427E92758008200081281 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				50C427DD2757D87000081281 /* ViewModel.swift */,
+				50C427E12757FFF700081281 /* MainViewModel.swift */,
+				50C427F527582F5700081281 /* LocalViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		50C427EA2758009200081281 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				50C427CF2757CDD700081281 /* MainView.swift */,
+				50C427F327582EAE00081281 /* LocalView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		50C427EB2758009B00081281 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				50C427E52758004000081281 /* CoordinatorService.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		50C427EC275800AB00081281 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				50C427E72758005600081281 /* NetworkService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		50C427ED275800D600081281 /* Dependency Containter */ = {
+			isa = PBXGroup;
+			children = (
+				50C427E32758000E00081281 /* DependencyContainer.swift */,
+			);
+			path = "Dependency Containter";
+			sourceTree = "<group>";
+		};
+		50C427EE275800FA00081281 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +206,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50C427D02757CDD700081281 /* ContentView.swift in Sources */,
+				50C427F427582EAE00081281 /* LocalView.swift in Sources */,
+				50C427D02757CDD700081281 /* MainView.swift in Sources */,
+				50C427E42758000E00081281 /* DependencyContainer.swift in Sources */,
+				50C427E62758004000081281 /* CoordinatorService.swift in Sources */,
+				50C427DE2757D87000081281 /* ViewModel.swift in Sources */,
 				50C427CE2757CDD700081281 /* Network_Monitor_ToolApp.swift in Sources */,
+				50C427F627582F5700081281 /* LocalViewModel.swift in Sources */,
+				50C427E22757FFF800081281 /* MainViewModel.swift in Sources */,
+				50C427E82758005600081281 /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
