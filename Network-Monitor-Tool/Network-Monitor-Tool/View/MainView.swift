@@ -16,7 +16,7 @@ struct MainView<T: ViewModel>: View {
     
     var body: some View {
         NavigationView {
-            createTableView()
+            createView()
         }
     }
     
@@ -32,20 +32,20 @@ struct MainView<T: ViewModel>: View {
 //                        }
 //                    }
     
-    func createTableView() -> some View {
+    func createView() -> some View {
         guard let viewModel = viewModel as? MainViewModel else {
             fatalError("Log: Unable to cast generic viewModel to direct type")
         }
         
         return Form {
-            createCell(.local(view: viewModel.isLocalButtonSelected), managedState: $isLocalButtonSelected)
-            createCell(.internet(view: viewModel.isInternetButtonSelected), managedState: $isInternetButtonSelected)
+            createButton(.local(view: viewModel.isLocalButtonSelected), managedState: $isLocalButtonSelected)
+            createButton(.internet(view: viewModel.isInternetButtonSelected), managedState: $isInternetButtonSelected)
         }
         .navigationTitle("Configure Connections")
         .navigationBarTitleDisplayMode(.inline)
     }
     
-    func createCell<T: View>(_ buttonType: CellDataSourceTypes<T>, managedState: Binding<Bool> ) -> some View {
+    func createButton<T: View>(_ buttonType: ButtonTypes<T>, managedState: Binding<Bool> ) -> some View {
         return Section {
             NavigationLink(
                 buttonType.details.title,
@@ -55,7 +55,7 @@ struct MainView<T: ViewModel>: View {
         }
     }
     
-    enum CellDataSourceTypes<T> {
+    enum ButtonTypes<T> {
         case local(view: T)
         case internet(view: T)
         
