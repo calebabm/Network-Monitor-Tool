@@ -1,13 +1,13 @@
 //
-//  LocalViewModel.swift
+//  InternetViewModel.swift
 //  Network-Monitor-Tool
 //
-//  Created by Caleb Meurer on 12/1/21.
+//  Created by Caleb Meurer on 12/2/21.
 //
 
 import SwiftUI
 
-final class LocalViewModel: ViewModel {
+final class InternetViewModel: ViewModel {
     typealias Services = (networkService: NetworkService, coordinatorService: CoordinatorService)
     var dependencies: DependencyContainer<Services>
     

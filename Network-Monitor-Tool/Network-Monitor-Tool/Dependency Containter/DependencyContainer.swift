@@ -10,6 +10,8 @@ import Foundation
 enum DependencyContainer<T> {
     case dependencies(_ services: T)
     
+    func construct() {}
+    
     var services: T {
         switch self {
         case .dependencies(let services):

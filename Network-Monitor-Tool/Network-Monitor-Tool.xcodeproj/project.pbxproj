@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5080556127599FE700722268 /* InternetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5080556027599FE700722268 /* InternetView.swift */; };
+		5080556327599FFE00722268 /* InternetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5080556227599FFE00722268 /* InternetViewModel.swift */; };
 		50C427CE2757CDD700081281 /* Network_Monitor_ToolApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C427CD2757CDD700081281 /* Network_Monitor_ToolApp.swift */; };
 		50C427D02757CDD700081281 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C427CF2757CDD700081281 /* MainView.swift */; };
 		50C427D22757CDD900081281 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50C427D12757CDD900081281 /* Assets.xcassets */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5080556027599FE700722268 /* InternetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetView.swift; sourceTree = "<group>"; };
+		5080556227599FFE00722268 /* InternetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetViewModel.swift; sourceTree = "<group>"; };
 		50C427CA2757CDD700081281 /* Network-Monitor-Tool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Network-Monitor-Tool.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50C427CD2757CDD700081281 /* Network_Monitor_ToolApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network_Monitor_ToolApp.swift; sourceTree = "<group>"; };
 		50C427CF2757CDD700081281 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -92,6 +96,7 @@
 				50C427DD2757D87000081281 /* ViewModel.swift */,
 				50C427E12757FFF700081281 /* MainViewModel.swift */,
 				50C427F527582F5700081281 /* LocalViewModel.swift */,
+				5080556227599FFE00722268 /* InternetViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -101,6 +106,7 @@
 			children = (
 				50C427CF2757CDD700081281 /* MainView.swift */,
 				50C427F327582EAE00081281 /* LocalView.swift */,
+				5080556027599FE700722268 /* InternetView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -146,6 +152,7 @@
 				50C427C62757CDD700081281 /* Sources */,
 				50C427C72757CDD700081281 /* Frameworks */,
 				50C427C82757CDD700081281 /* Resources */,
+				50C282C6275AD20C00BABD61 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -201,6 +208,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		50C282C6275AD20C00BABD61 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nTAGS=\"FIXME:|TODO:\"\nERRORTAG=\"ERROR:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$|($ERRORTAG).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\" | perl -p -e \"s/($ERRORTAG)/ error: \\$1/\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		50C427C62757CDD700081281 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -210,7 +237,9 @@
 				50C427D02757CDD700081281 /* MainView.swift in Sources */,
 				50C427E42758000E00081281 /* DependencyContainer.swift in Sources */,
 				50C427E62758004000081281 /* CoordinatorService.swift in Sources */,
+				5080556327599FFE00722268 /* InternetViewModel.swift in Sources */,
 				50C427DE2757D87000081281 /* ViewModel.swift in Sources */,
+				5080556127599FE700722268 /* InternetView.swift in Sources */,
 				50C427CE2757CDD700081281 /* Network_Monitor_ToolApp.swift in Sources */,
 				50C427F627582F5700081281 /* LocalViewModel.swift in Sources */,
 				50C427E22757FFF800081281 /* MainViewModel.swift in Sources */,
