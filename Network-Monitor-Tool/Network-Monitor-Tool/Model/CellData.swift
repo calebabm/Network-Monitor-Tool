@@ -7,7 +7,11 @@
 
 import SwiftUI
 
-struct CellData: Identifiable {
+class CellData: Identifiable {
     var id = UUID()
     var title: String
+    
+    init(title: String) {
+        self.title = title
+    }
 }

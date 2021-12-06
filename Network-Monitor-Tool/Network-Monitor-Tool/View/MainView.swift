@@ -48,15 +48,3 @@ struct MainView_Previews: PreviewProvider {
         MainView(viewModel)
     }
 }
-
-//TODO: Use this approach to create cells with cell model rather than using buttons
-//    List(viewModel.items.identified(by: \.id)) { item in
-//                        Button(action: {
-//                            // Save the object into a global store to be used later on
-//                            self.viewModel.selectedItem = item
-//                            // Present new view
-//                            self.link.presented?.value = true
-//                        }) {
-//                            Text(value: item)
-//                        }
-//                    }

@@ -10,34 +10,50 @@ import SwiftUI
 struct LocalView<T: ViewModel>: View {
     
     @ObservedObject private var viewModel: T
-    @State var didSelectRow = false
     
     var body: some View {
-        Form {
+        createView()
+    }
+    
+    func createView() -> some View {
+        guard let viewModel = viewModel as? LocalViewModel else {
+            fatalError("Log: Unable to cast generic viewModel to direct type")
+        }
+        
+        return Form {
             Section(header: Text("Single Connections")) {
-                ForEach(0..<15) { number in
-                    //TODO: Create an array in the view model for the number of cells, use the number in the for each as the index for the element in the array to use for each cell viewModel.cells[number]
-                    NavigationLink(
-                        "State | Host | Client",
-                        destination: EmptyView(),
-                        isActive: $didSelectRow
-                    )
+                List(viewModel.cellData.filter { $0.clients.count == 1 }, id: \.id) { (cell) in
+                    Section {
+                        NavigationLink {
+                            EmptyView()
+                        } label: {
+                            Text(cell.state)
+                            Text(cell.host)
+                            Text(cell.clients[0])
+                        }
+                    }
                 }
             }
             
             Section(header: Text("Group Connections")) {
-                ForEach(0..<15) { number in
-                    NavigationLink(
-                        "State | Host | Clients",
-                        destination: EmptyView(),
-                        isActive: $didSelectRow
-                    )
+                List(viewModel.cellData.filter { $0.clients.count > 1 }, id: \.id) { (cell) in
+                    Section {
+                        NavigationLink {
+                            EmptyView()
+                        } label: {
+                            Text(cell.state)
+                            Text(cell.host)
+                            ForEach(cell.clients, id: \.self) { cell in
+                                Text(cell)
+                                
+                            }
+                        }
+                    }
                 }
             }
         }
         .navigationTitle("Local Connections")
     }
-    
     
     init(_ viewModel: T) {
         self.viewModel = viewModel

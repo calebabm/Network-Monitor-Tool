@@ -18,8 +18,8 @@ struct CoordinatorService {
             MainView(dependencies)
         case is LocalViewModel.Type:
             LocalView(dependencies)
-        case is InternetViewModel.Type:
-            InternetView(dependencies)
+        case is ServerViewModel.Type:
+            ServerView(dependencies)
         default:
             EmptyView()
         }

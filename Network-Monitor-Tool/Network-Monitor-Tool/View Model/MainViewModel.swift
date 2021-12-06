@@ -12,7 +12,7 @@ final class MainViewModel: ViewModel {
     var dependencies: DependencyContainer<Services>
     var cellData = [
         CellData(title: "Local"),
-        CellData(title: "HTTP")
+        CellData(title: "Server")
     ]
     
     @ViewBuilder
@@ -20,7 +20,7 @@ final class MainViewModel: ViewModel {
         if cell.id == cellData[0].id {
             dependencies.services.presentView(with:LocalViewModel(.dependencies((NetworkService(), CoordinatorService()))))
         } else {
-            dependencies.services.presentView(with: InternetViewModel(.dependencies((NetworkService(), CoordinatorService()))))
+            dependencies.services.presentView(with: ServerViewModel(.dependencies((NetworkService(), CoordinatorService()))))
         }
     }
     
@@ -28,32 +28,3 @@ final class MainViewModel: ViewModel {
         self.dependencies = dependencies
     }
 }
-
-//func constructDependencies(selection: CellData) -> DependencyContainer< {
-//
-//}
-
-
-//    func createButton<T: View>(_ buttonType: ButtonTypes<T>, managedState: Binding<Bool> ) -> some View {
-//        return Section {
-//            NavigationLink(
-//                buttonType.details.title,
-//                destination: buttonType.details.view,
-//                isActive: managedState
-//            )
-//        }
-//    }
-//
-//    enum ButtonTypes<T> {
-//        case local(view: T)
-//        case internet(view: T)
-//
-//        var details: (view: T, title: String) {
-//            switch self {
-//            case .local(let view):
-//                return (view, "Local")
-//            case .internet(let view):
-//                return (view, "Internet")
-//            }
-//        }
-//    }
