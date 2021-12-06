@@ -18,7 +18,7 @@ struct LocalView<T: ViewModel>: View {
                 ForEach(0..<15) { number in
                     //TODO: Create an array in the view model for the number of cells, use the number in the for each as the index for the element in the array to use for each cell viewModel.cells[number]
                     NavigationLink(
-                        "Local Connection View",
+                        "State | Host | Client",
                         destination: EmptyView(),
                         isActive: $didSelectRow
                     )
@@ -28,7 +28,7 @@ struct LocalView<T: ViewModel>: View {
             Section(header: Text("Group Connections")) {
                 ForEach(0..<15) { number in
                     NavigationLink(
-                        "Local Connection View",
+                        "State | Host | Clients",
                         destination: EmptyView(),
                         isActive: $didSelectRow
                     )

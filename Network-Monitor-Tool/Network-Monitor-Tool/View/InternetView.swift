@@ -21,7 +21,7 @@ struct InternetView<T: ViewModel>: View {
             } label: {
                 Text("Create an HTTP Request")
             }
-            Section {
+            Section(header: Text("Requests")) {
                 ForEach(0..<25) { number in
                     NavigationLink(
                         "TimeStamp | RequestType | Status",

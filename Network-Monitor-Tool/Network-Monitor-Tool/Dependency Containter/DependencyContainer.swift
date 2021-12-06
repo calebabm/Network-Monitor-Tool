@@ -10,7 +10,7 @@ import Foundation
 enum DependencyContainer<T> {
     case dependencies(_ services: T)
     
-    func construct() {}
+    //TODO: Possibly use a method to create dependencies rather than create variables and passing into ViewModel -> Coordinator
     
     var services: T {
         switch self {

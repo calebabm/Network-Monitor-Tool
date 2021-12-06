@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5080556127599FE700722268 /* InternetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5080556027599FE700722268 /* InternetView.swift */; };
 		5080556327599FFE00722268 /* InternetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5080556227599FFE00722268 /* InternetViewModel.swift */; };
+		50C282C8275C249100BABD61 /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C282C7275C249100BABD61 /* CellData.swift */; };
 		50C427CE2757CDD700081281 /* Network_Monitor_ToolApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C427CD2757CDD700081281 /* Network_Monitor_ToolApp.swift */; };
 		50C427D02757CDD700081281 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C427CF2757CDD700081281 /* MainView.swift */; };
 		50C427D22757CDD900081281 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50C427D12757CDD900081281 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		5080556027599FE700722268 /* InternetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetView.swift; sourceTree = "<group>"; };
 		5080556227599FFE00722268 /* InternetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetViewModel.swift; sourceTree = "<group>"; };
+		50C282C7275C249100BABD61 /* CellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellData.swift; sourceTree = "<group>"; };
 		50C427CA2757CDD700081281 /* Network-Monitor-Tool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Network-Monitor-Tool.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50C427CD2757CDD700081281 /* Network_Monitor_ToolApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network_Monitor_ToolApp.swift; sourceTree = "<group>"; };
 		50C427CF2757CDD700081281 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 		50C427EE275800FA00081281 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				50C282C7275C249100BABD61 /* CellData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				50C427F627582F5700081281 /* LocalViewModel.swift in Sources */,
 				50C427E22757FFF800081281 /* MainViewModel.swift in Sources */,
 				50C427E82758005600081281 /* NetworkService.swift in Sources */,
+				50C282C8275C249100BABD61 /* CellData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
