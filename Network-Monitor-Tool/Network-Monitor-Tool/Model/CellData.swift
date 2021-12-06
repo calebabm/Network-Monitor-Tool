@@ -5,7 +5,7 @@
 //  Created by Caleb Meurer on 12/4/21.
 //
 
-import SwiftUI
+import Foundation
 
 class CellData: Identifiable {
     var id = UUID()

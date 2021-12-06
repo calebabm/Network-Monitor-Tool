@@ -9,10 +9,8 @@ import SwiftUI
 
 struct ServerView<T: ViewModel>: View {
     
-    @ObservedObject private var viewModel: T
-    @State private var backButtonTapped = false
+    private(set) var viewModel: T
     @State private var createRequestTapped = false
-    @State private var didSelectRow = false
     
     var body: some View {
         createView()

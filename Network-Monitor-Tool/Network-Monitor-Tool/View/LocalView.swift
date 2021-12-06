@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LocalView<T: ViewModel>: View {
     
-    @ObservedObject private var viewModel: T
+    private(set) var viewModel: T
     
     var body: some View {
         createView()

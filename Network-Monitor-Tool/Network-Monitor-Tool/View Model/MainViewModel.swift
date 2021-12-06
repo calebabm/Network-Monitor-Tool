@@ -10,6 +10,7 @@ import SwiftUI
 final class MainViewModel: ViewModel {
     typealias Services = CoordinatorService
     var dependencies: DependencyContainer<Services>
+    
     var cellData = [
         CellData(title: "Local"),
         CellData(title: "Server")
