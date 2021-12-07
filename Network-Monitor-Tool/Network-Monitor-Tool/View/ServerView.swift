@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ServerView<T: ViewModel>: View {
     
-    private(set) var viewModel: T
+    @ObservedObject var viewModel: T
     @State private var createRequestTapped = false
     
     var body: some View {
@@ -20,24 +20,17 @@ struct ServerView<T: ViewModel>: View {
         guard let viewModel = viewModel as? ServerViewModel else {
             fatalError("Log: Unable to cast generic viewModel to direct type")
         }
+        
         return Form {
             Button {
                 createRequestTapped.toggle()
             } label: {
                 Text("Create an HTTP Request")
             }
+            
             Section(header: Text("Requests")) {
-                List(viewModel.cellData, id: \.id) { (cell) in
-                    Section {
-                        NavigationLink {
-                            EmptyView()
-                        } label: {
-                            Text(cell.title)
-                            Text(cell.timeStamp)
-                            Text(cell.requestType)
-                            Text(cell.status)
-                        }
-                    }
+                List(viewModel.serverConnections, id: \.id) { (serverConnection) in
+                    ServerRowView(serverConnection: serverConnection)
                 }
             }
         }.navigationTitle("Server Requests")

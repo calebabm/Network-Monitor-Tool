@@ -10,5 +10,5 @@ import Combine
 protocol ViewModel: ObservableObject {
     associatedtype Services
     var dependencies: DependencyContainer<Services> { get set }
-    init(_ dependencies: DependencyContainer<Services>)
+    init(_ : DependencyContainer<Services>)
 }

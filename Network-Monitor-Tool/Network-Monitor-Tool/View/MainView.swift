@@ -22,7 +22,7 @@ struct MainView<T: ViewModel>: View {
             fatalError("Log: Unable to cast generic viewModel to direct type")
         }
         
-        return List(viewModel.cellData, id: \.id) { (cell) in
+        return List(viewModel.dataSource, id: \.id) { (cell) in
             Section {
                 NavigationLink {
                     viewModel.selected(cell: cell)

@@ -7,16 +7,18 @@
 
 import Foundation
 
-class LocalCell: CellData {
+class LocalConnection: Identifiable {
+    var id = UUID()
+    var time: String
     var state: String
     var host: String
     var clients: [String]
     
-    init(title: String, state: String, host: String, client: [String]) {
+    init(time: String, state: String, host: String, client: [String]) {
+        self.time = time
         self.state = state
         self.host = host
         self.clients = client
-        super.init(title: title)
     }
     
 }

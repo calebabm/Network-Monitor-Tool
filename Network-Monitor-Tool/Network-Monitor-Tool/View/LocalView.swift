@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import Combine
 
 struct LocalView<T: ViewModel>: View {
     
-    private(set) var viewModel: T
+    @ObservedObject var viewModel: T
     
     var body: some View {
         createView()
@@ -22,33 +23,14 @@ struct LocalView<T: ViewModel>: View {
         
         return Form {
             Section(header: Text("Single Connections")) {
-                List(viewModel.cellData.filter { $0.clients.count == 1 }, id: \.id) { (cell) in
-                    Section {
-                        NavigationLink {
-                            EmptyView()
-                        } label: {
-                            Text(cell.state)
-                            Text(cell.host)
-                            Text(cell.clients[0])
-                        }
-                    }
+                List(viewModel.localConnections.filter { $0.clients.count == 1 }, id: \.id) { (localConnection) in
+                    LocalRowView(localConnection: localConnection)
                 }
             }
             
             Section(header: Text("Group Connections")) {
-                List(viewModel.cellData.filter { $0.clients.count > 1 }, id: \.id) { (cell) in
-                    Section {
-                        NavigationLink {
-                            EmptyView()
-                        } label: {
-                            Text(cell.state)
-                            Text(cell.host)
-                            ForEach(cell.clients, id: \.self) { cell in
-                                Text(cell)
-                                
-                            }
-                        }
-                    }
+                List(viewModel.localConnections.filter { $0.clients.count > 1 }, id: \.id) { (localConnection) in
+                    LocalRowView(localConnection: localConnection)
                 }
             }
         }

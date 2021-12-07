@@ -11,15 +11,15 @@ final class MainViewModel: ViewModel {
     typealias Services = CoordinatorService
     var dependencies: DependencyContainer<Services>
     
-    var cellData = [
+    var dataSource = [
         CellData(title: "Local"),
         CellData(title: "Server")
     ]
     
     @ViewBuilder
     func selected(cell: CellData) -> some View {
-        if cell.id == cellData[0].id {
-            dependencies.services.presentView(with:LocalViewModel(.dependencies((NetworkService(), CoordinatorService()))))
+        if cell.id == dataSource[0].id {
+            dependencies.services.presentView(with: LocalViewModel(.dependencies((NetworkService(), CoordinatorService()))))
         } else {
             dependencies.services.presentView(with: ServerViewModel(.dependencies((NetworkService(), CoordinatorService()))))
         }

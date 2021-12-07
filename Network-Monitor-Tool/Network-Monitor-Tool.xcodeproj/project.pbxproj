@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		5080556127599FE700722268 /* ServerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5080556027599FE700722268 /* ServerView.swift */; };
 		5080556327599FFE00722268 /* ServerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5080556227599FFE00722268 /* ServerViewModel.swift */; };
-		509B9A9E275EBBBB00E3BCEE /* LocalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509B9A9D275EBBBB00E3BCEE /* LocalCell.swift */; };
-		509B9AA0275EBBFC00E3BCEE /* ServerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509B9A9F275EBBFC00E3BCEE /* ServerCell.swift */; };
+		5083E364275FCD73008CA0F9 /* LocalRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5083E363275FCD73008CA0F9 /* LocalRowView.swift */; };
+		5083E366275FF7E1008CA0F9 /* ServerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5083E365275FF7E0008CA0F9 /* ServerRowView.swift */; };
+		509B9A9E275EBBBB00E3BCEE /* LocalConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509B9A9D275EBBBB00E3BCEE /* LocalConnection.swift */; };
+		509B9AA0275EBBFC00E3BCEE /* ServerConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509B9A9F275EBBFC00E3BCEE /* ServerConnection.swift */; };
 		50C282C8275C249100BABD61 /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C282C7275C249100BABD61 /* CellData.swift */; };
 		50C427CE2757CDD700081281 /* Network_Monitor_ToolApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C427CD2757CDD700081281 /* Network_Monitor_ToolApp.swift */; };
 		50C427D02757CDD700081281 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C427CF2757CDD700081281 /* MainView.swift */; };
@@ -28,8 +30,10 @@
 /* Begin PBXFileReference section */
 		5080556027599FE700722268 /* ServerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerView.swift; sourceTree = "<group>"; };
 		5080556227599FFE00722268 /* ServerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerViewModel.swift; sourceTree = "<group>"; };
-		509B9A9D275EBBBB00E3BCEE /* LocalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCell.swift; sourceTree = "<group>"; };
-		509B9A9F275EBBFC00E3BCEE /* ServerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerCell.swift; sourceTree = "<group>"; };
+		5083E363275FCD73008CA0F9 /* LocalRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalRowView.swift; sourceTree = "<group>"; };
+		5083E365275FF7E0008CA0F9 /* ServerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerRowView.swift; sourceTree = "<group>"; };
+		509B9A9D275EBBBB00E3BCEE /* LocalConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalConnection.swift; sourceTree = "<group>"; };
+		509B9A9F275EBBFC00E3BCEE /* ServerConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerConnection.swift; sourceTree = "<group>"; };
 		50C282C7275C249100BABD61 /* CellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellData.swift; sourceTree = "<group>"; };
 		50C427CA2757CDD700081281 /* Network-Monitor-Tool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Network-Monitor-Tool.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50C427CD2757CDD700081281 /* Network_Monitor_ToolApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network_Monitor_ToolApp.swift; sourceTree = "<group>"; };
@@ -113,6 +117,8 @@
 				50C427CF2757CDD700081281 /* MainView.swift */,
 				50C427F327582EAE00081281 /* LocalView.swift */,
 				5080556027599FE700722268 /* ServerView.swift */,
+				5083E363275FCD73008CA0F9 /* LocalRowView.swift */,
+				5083E365275FF7E0008CA0F9 /* ServerRowView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -145,8 +151,8 @@
 			isa = PBXGroup;
 			children = (
 				50C282C7275C249100BABD61 /* CellData.swift */,
-				509B9A9D275EBBBB00E3BCEE /* LocalCell.swift */,
-				509B9A9F275EBBFC00E3BCEE /* ServerCell.swift */,
+				509B9A9D275EBBBB00E3BCEE /* LocalConnection.swift */,
+				509B9A9F275EBBFC00E3BCEE /* ServerConnection.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -249,13 +255,15 @@
 				5080556327599FFE00722268 /* ServerViewModel.swift in Sources */,
 				50C427DE2757D87000081281 /* ViewModel.swift in Sources */,
 				5080556127599FE700722268 /* ServerView.swift in Sources */,
-				509B9A9E275EBBBB00E3BCEE /* LocalCell.swift in Sources */,
+				509B9A9E275EBBBB00E3BCEE /* LocalConnection.swift in Sources */,
+				5083E366275FF7E1008CA0F9 /* ServerRowView.swift in Sources */,
 				50C427CE2757CDD700081281 /* Network_Monitor_ToolApp.swift in Sources */,
 				50C427F627582F5700081281 /* LocalViewModel.swift in Sources */,
 				50C427E22757FFF800081281 /* MainViewModel.swift in Sources */,
 				50C427E82758005600081281 /* NetworkService.swift in Sources */,
-				509B9AA0275EBBFC00E3BCEE /* ServerCell.swift in Sources */,
+				509B9AA0275EBBFC00E3BCEE /* ServerConnection.swift in Sources */,
 				50C282C8275C249100BABD61 /* CellData.swift in Sources */,
+				5083E364275FCD73008CA0F9 /* LocalRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

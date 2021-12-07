@@ -11,12 +11,12 @@ final class LocalViewModel: ViewModel {
     typealias Services = (networkService: NetworkService, coordinatorService: CoordinatorService)
     var dependencies: DependencyContainer<Services>
     
-    var cellData = [
-        LocalCell(title: "", state: "Connected", host: "172.20.10.3", client: ["172.20.10.4"]),
-        LocalCell(title: "", state: "Offline", host: "172.20.10.3", client: ["172.20.10.5"]),
-        LocalCell(title: "", state: "Offline", host: "172.20.10.3", client: ["172.20.10.6"]),
-        LocalCell(title: "", state: "Offline", host: "172.20.10.3", client: ["172.20.10.7", "172.20.10.8", "172.20.10.9"]),
-        LocalCell(title: "", state: "Offline", host: "172.20.10.3", client: ["172.20.10.10", "172.20.10.11", "172.20.10.12"])
+    var localConnections = [
+        LocalConnection(time: "12:18", state: "Connected", host: "172.20.10.3", client: ["192.168.86.170"]),
+        LocalConnection(time: "12:17", state: "Offline", host: "172.20.10.3", client: ["192.168.86.170"]),
+        LocalConnection(time: "12:15", state: "Offline", host: "172.20.10.3", client: ["192.168.86.170"]),
+        LocalConnection(time: "12:10", state: "Offline", host: "172.20.10.3", client: ["192.168.86.170", "192.168.86.170", "192.168.86.170"]),
+        LocalConnection(time: "12:02", state: "Offline", host: "172.20.10.3", client: ["192.168.86.170", "192.168.86.170", "192.168.86.170"])
     ]
     
     required init(_ dependencies: DependencyContainer<Services>) {
