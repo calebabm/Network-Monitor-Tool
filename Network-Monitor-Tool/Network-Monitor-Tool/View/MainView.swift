@@ -13,7 +13,11 @@ struct MainView<T: ViewModel>: View {
     
     var body: some View {
         NavigationView {
-            createView()
+            ZStack {
+                Color.offWhite
+                    .ignoresSafeArea()
+                createView()
+            }
         }
     }
     
@@ -22,12 +26,11 @@ struct MainView<T: ViewModel>: View {
             fatalError("Log: Unable to cast generic viewModel to direct type")
         }
         
-        return List(viewModel.dataSource, id: \.id) { (cell) in
-            Section {
-                NavigationLink {
-                    viewModel.selected(cell: cell)
-                } label: {
-                    Text(cell.title)
+        return ScrollView {
+            LazyVStack {
+                ForEach(viewModel.dataSource, id: \.id) { (cell) in
+                    MainViewCell(cellData: cell, destination: viewModel.selected(cell: cell))
+                        .listRowBackground(Color.red)
                 }
             }
         }
