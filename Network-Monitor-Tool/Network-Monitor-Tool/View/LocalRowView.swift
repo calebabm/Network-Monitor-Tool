@@ -17,33 +17,20 @@ struct LocalRowView: View {
                 EmptyView()
             } label: {
                 HStack {
-                    VStack{
-                        Text("State")
-                            .font(.system(size: 14))
-                        Text(localConnection.state)
-                            .font(.system(size: 12))
-                    }
+                    Text(localConnection.state)
+                        .font(.system(size: 12))
+                    Text(localConnection.host)
+                        .font(.system(size: 12))
                     VStack {
-                        Text("Host")
-                            .font(.system(size: 14))
-                        Text(localConnection.host)
-                            .font(.system(size: 12))
-                    }.frame(maxWidth: .infinity)
-                    VStack {
-                        Text("Clients")
-                            .font(.system(size: 14))
                         ForEach(localConnection.clients, id: \.self) { client in
                             Text(client)
                                 .font(.system(size: 12))
                         }
-                    }.frame(maxWidth: .infinity)
-                    VStack {
-                        Text("Time")
-                            .font(.system(size: 14))
-                        Text(localConnection.time)
-                            .font(.system(size: 12))
                     }
-                }.scaledToFill()
+                    .padding()
+                    Text(localConnection.time)
+                        .font(.system(size: 12))
+                }.scaledToFit()
             }
         }
     }

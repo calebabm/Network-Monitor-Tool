@@ -12,7 +12,7 @@ final class LocalViewModel: ViewModel {
     var dependencies: DependencyContainer<Services>
     
     var localConnections = [
-        LocalConnection(time: "12:18", state: "Connected", host: "172.20.10.3", client: ["192.168.86.170"]),
+        LocalConnection(time: "12:18", state: "Online", host: "172.20.10.3", client: ["192.168.86.170"]),
         LocalConnection(time: "12:17", state: "Offline", host: "172.20.10.3", client: ["192.168.86.170"]),
         LocalConnection(time: "12:15", state: "Offline", host: "172.20.10.3", client: ["192.168.86.170"]),
         LocalConnection(time: "12:10", state: "Offline", host: "172.20.10.3", client: ["192.168.86.170", "192.168.86.170", "192.168.86.170"]),

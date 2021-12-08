@@ -9,10 +9,10 @@ import Foundation
 
 class LocalConnection: Identifiable {
     var id = UUID()
-    var time: String
     var state: String
     var host: String
     var clients: [String]
+    var time: String
     
     init(time: String, state: String, host: String, client: [String]) {
         self.time = time

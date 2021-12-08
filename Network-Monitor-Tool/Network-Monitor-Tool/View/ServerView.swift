@@ -21,6 +21,14 @@ struct ServerView<T: ViewModel>: View {
             fatalError("Log: Unable to cast generic viewModel to direct type")
         }
         
+        let header =
+            HStack {
+                Text("URL").padding()
+                Text("Request Type").padding()
+                Text("Status")
+                Text("Time").padding()
+            }.scaledToFit()
+        
         return Form {
             Button {
                 createRequestTapped.toggle()
@@ -28,7 +36,7 @@ struct ServerView<T: ViewModel>: View {
                 Text("Create an HTTP Request")
             }
             
-            Section(header: Text("Requests")) {
+            Section(header: header) {
                 List(viewModel.serverConnections, id: \.id) { (serverConnection) in
                     ServerRowView(serverConnection: serverConnection)
                 }

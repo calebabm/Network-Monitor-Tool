@@ -43,6 +43,22 @@ struct MainViewCell_Previews: PreviewProvider {
     }
 }
 
+//SwiftUI(iOS 14) currently doesn't allow most customization of NavigationView, so this is a work around
+struct NavigationConfigurator: UIViewControllerRepresentable {
+    var configure: (UINavigationController) -> Void = { _ in }
+
+    func makeUIViewController(context: UIViewControllerRepresentableContext<NavigationConfigurator>) -> UIViewController {
+        UIViewController()
+    }
+    
+    func updateUIViewController(_ viewController: UIViewController, context: UIViewControllerRepresentableContext<NavigationConfigurator>) {
+        if let navigationController = viewController.navigationController {
+            self.configure(navigationController)
+        }
+    }
+
+}
+
 extension Color {
     static let offWhite = Color(red: 225 / 255, green: 225 / 255, blue: 235 / 255)
 }

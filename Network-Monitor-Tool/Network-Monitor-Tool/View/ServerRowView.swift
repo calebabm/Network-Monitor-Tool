@@ -17,38 +17,25 @@ struct ServerRowView: View {
                 EmptyView()
             } label: {
                 HStack {
-                    VStack{
-                        Text("URL")
-                            .font(.system(size: 14))
-                        Text(serverConnection.url)
-                            .font(.system(size: 12))
-                    }
-                    VStack {
-                        Text("Request Type")
-                            .font(.system(size: 14))
-                        Text(serverConnection.requestType)
-                            .font(.system(size: 12))
-                    }
-                    VStack {
-                        Text("Status")
-                            .font(.system(size: 14))
-                        Text(serverConnection.status)
-                                .font(.system(size: 12))
-                    }
-                    VStack {
-                        Text("Time")
-                            .font(.system(size: 14))
-                        Text(serverConnection.timeStamp)
-                            .font(.system(size: 12))
-                    }
-                }
+                    Text(serverConnection.url)
+                        .padding()
+                        .font(.system(size: 12))
+                    Text(serverConnection.requestType)
+                        .padding()
+                        .font(.system(size: 12))
+                    Text(serverConnection.status)
+                        .padding()
+                        .font(.system(size: 12))
+                    Text(serverConnection.time)
+                        .font(.system(size: 12))
+                }.scaledToFit()
             }
         }
     }
 }
 struct ServerRowView_Previews: PreviewProvider {
     static var previews: some View {
-        let connection = ServerConnection(url: "revelup.com", timeStamp: "12:10", requestType: "POST", status: "404")
+        let connection = ServerConnection(url: "revelup.com/lucid-dream-machine", requestType: "POST", status: "404", time: "12:10")
         ServerRowView(serverConnection: connection)
             .previewLayout(.fixed(width: 370, height: 100))
     }

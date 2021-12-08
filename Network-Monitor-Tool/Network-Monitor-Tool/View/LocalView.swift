@@ -21,8 +21,19 @@ struct LocalView<T: ViewModel>: View {
             fatalError("Log: Unable to cast generic viewModel to direct type")
         }
         
+        let singleConnectionHeader =
+        VStack {
+            HStack {
+                Text("State").padding()
+                Text("Host").padding()
+                Text("Clients").padding()
+                Text("Time").padding()
+            }
+            Text("Single Connections").frame(maxWidth: .infinity, alignment: .leading)
+        }
+        
         return Form {
-            Section(header: Text("Single Connections")) {
+            Section(header: singleConnectionHeader) {
                 List(viewModel.localConnections.filter { $0.clients.count == 1 }, id: \.id) { (localConnection) in
                     LocalRowView(localConnection: localConnection)
                 }

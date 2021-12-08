@@ -15,9 +15,12 @@ struct MainView<T: ViewModel>: View {
         NavigationView {
             ZStack {
                 Color.offWhite
-                    .ignoresSafeArea()
+                    .ignoresSafeArea(.all)
                 createView()
             }
+            .background(NavigationConfigurator { navigationController in
+                navigationController.navigationBar.barTintColor = UIColor(Color.offWhite)
+            })
         }
     }
     
@@ -30,7 +33,6 @@ struct MainView<T: ViewModel>: View {
             LazyVStack {
                 ForEach(viewModel.dataSource, id: \.id) { (cell) in
                     MainViewCell(cellData: cell, destination: viewModel.selected(cell: cell))
-                        .listRowBackground(Color.red)
                 }
             }
         }

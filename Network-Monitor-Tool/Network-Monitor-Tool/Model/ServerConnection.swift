@@ -10,14 +10,14 @@ import Foundation
 class ServerConnection: Identifiable {
     var id = UUID()
     var url: String
-    var timeStamp: String
     var requestType: String
     var status: String
+    var time: String
     
-    init(url: String, timeStamp: String, requestType: String, status: String) {
+    init(url: String, requestType: String, status: String, time: String) {
         self.url = url
-        self.timeStamp = timeStamp
         self.requestType = requestType
         self.status = status
+        self.time = time
     }    
 }

@@ -12,9 +12,9 @@ final class ServerViewModel: ViewModel {
     var dependencies: DependencyContainer<Services>
     
     var serverConnections = [
-        ServerConnection(url: "revelup.com", timeStamp: "12:10", requestType: "POST", status: "404"),
-        ServerConnection(url: "revelup.com", timeStamp: "1:30", requestType: "GET", status: "200"),
-        ServerConnection(url: "revelup.com", timeStamp: "2:33", requestType: "GET", status: "200")
+        ServerConnection(url: "revelup.com", requestType: "POST", status: "404", time: "12:10"),
+        ServerConnection(url: "revelup.com", requestType: "GET", status: "200", time: "1:30"),
+        ServerConnection(url: "revelup.com", requestType: "GET", status: "200", time: "2:33")
     ]
     
     required init(_ dependencies: DependencyContainer<Services>) {
