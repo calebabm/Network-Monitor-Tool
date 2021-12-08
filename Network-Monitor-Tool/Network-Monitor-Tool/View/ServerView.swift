@@ -13,7 +13,14 @@ struct ServerView<T: ViewModel>: View {
     @State private var createRequestTapped = false
     
     var body: some View {
-        createView()
+        ZStack {
+            Color.offWhite
+                .ignoresSafeArea(.all)
+            createView()
+        }
+        .background(NavigationConfigurator { navigationController in
+            navigationController.navigationBar.barTintColor = UIColor(Color.offWhite)
+        })
     }
     
     func createView() -> some View {
@@ -22,24 +29,33 @@ struct ServerView<T: ViewModel>: View {
         }
         
         let header =
-            HStack {
-                Text("URL").padding()
-                Text("Request Type").padding()
-                Text("Status")
-                Text("Time").padding()
-            }.scaledToFit()
+        HStack {
+            Text("URL")
+                .padding()
+                .font(.system(size: 14))
+                .foregroundColor(.gray)
+            Text("Request Type")
+                .padding()
+                .font(.system(size: 14))
+                .foregroundColor(.gray)
+            Text("Status")
+                .padding()
+                .font(.system(size: 14))
+                .foregroundColor(.gray)
+            Text("Time")
+                .padding()
+                .font(.system(size: 14))
+                .foregroundColor(.gray)
+        }.scaledToFit()
         
-        return Form {
-            Button {
-                createRequestTapped.toggle()
-            } label: {
-                Text("Create an HTTP Request")
-            }
-            
-            Section(header: header) {
-                List(viewModel.serverConnections, id: \.id) { (serverConnection) in
-                    ServerRowView(serverConnection: serverConnection)
+        return ScrollView {
+            LazyVStack {
+                Section(header: header) {
+                    ForEach(viewModel.serverConnections, id: \.id) { (serverConnection) in
+                        ServerRowView(serverConnection: serverConnection)
+                    }
                 }
+                
             }
         }.navigationTitle("Server Requests")
     }

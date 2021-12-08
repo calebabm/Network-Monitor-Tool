@@ -57,7 +57,7 @@ struct MainViewCell<T: View>: View {
                 }
 
             }
-            .frame(width: 300, height: 300, alignment: .center)
+            .frame(width: 350, height: 350, alignment: .center)
         }
         .edgesIgnoringSafeArea(.all)
     }

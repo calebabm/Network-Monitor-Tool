@@ -15,7 +15,18 @@ final class LocalViewModel: ViewModel {
         LocalConnection(time: "12:18", state: "Online", host: "172.20.10.3", client: ["192.168.86.170"]),
         LocalConnection(time: "12:17", state: "Offline", host: "172.20.10.3", client: ["192.168.86.170"]),
         LocalConnection(time: "12:15", state: "Offline", host: "172.20.10.3", client: ["192.168.86.170"]),
+        LocalConnection(time: "12:15", state: "Offline", host: "172.20.10.3", client: ["192.168.86.170"]),
+        LocalConnection(time: "12:15", state: "Offline", host: "172.20.10.3", client: ["192.168.86.170"]),
+        LocalConnection(time: "12:15", state: "Offline", host: "172.20.10.3", client: ["192.168.86.170"]),
+        LocalConnection(time: "12:15", state: "Offline", host: "172.20.10.3", client: ["192.168.86.170"]),
         LocalConnection(time: "12:10", state: "Offline", host: "172.20.10.3", client: ["192.168.86.170", "192.168.86.170", "192.168.86.170"]),
+        LocalConnection(time: "12:02", state: "Offline", host: "172.20.10.3", client: ["192.168.86.170", "192.168.86.170", "192.168.86.170"]),
+        LocalConnection(time: "12:02", state: "Offline", host: "172.20.10.3", client: ["192.168.86.170", "192.168.86.170", "192.168.86.170"]),
+        LocalConnection(time: "12:02", state: "Offline", host: "172.20.10.3", client: ["192.168.86.170", "192.168.86.170", "192.168.86.170"]),
+        LocalConnection(time: "12:02", state: "Offline", host: "172.20.10.3", client: ["192.168.86.170", "192.168.86.170", "192.168.86.170"]),
+        LocalConnection(time: "12:02", state: "Offline", host: "172.20.10.3", client: ["192.168.86.170", "192.168.86.170", "192.168.86.170"]),
+        LocalConnection(time: "12:02", state: "Offline", host: "172.20.10.3", client: ["192.168.86.170", "192.168.86.170", "192.168.86.170"]),
+        LocalConnection(time: "12:02", state: "Offline", host: "172.20.10.3", client: ["192.168.86.170", "192.168.86.170", "192.168.86.170"]),
         LocalConnection(time: "12:02", state: "Offline", host: "172.20.10.3", client: ["192.168.86.170", "192.168.86.170", "192.168.86.170"])
     ]
     

@@ -10,18 +10,47 @@ import SwiftUI
 struct ServerRowView: View {
     
     var serverConnection: ServerConnection
+    @State var tapped = false
     
     var body: some View {
-        Section {
-            NavigationLink {
-                EmptyView()
-            } label: {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 25)
-                        .fill(Color.offWhite)
-                        .frame(width: 320, height: 80)
-                        .shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
-                        .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
+        ZStack {
+            if tapped {
+                RoundedRectangle(cornerRadius: 25)
+                    .fill(Color.offWhite)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 25)
+                            .stroke(Color.gray, lineWidth: 4)
+                            .blur(radius: 4)
+                            .offset(x: 2, y: 2)
+                            .mask(RoundedRectangle(cornerRadius: 25)
+                                    .fill(LinearGradient(Color.black, Color.clear)))
+                    )
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 25)
+                            .stroke(Color.white, lineWidth: 8)
+                            .blur(radius: 4)
+                            .offset(x: -2, y: -2)
+                            .mask(RoundedRectangle(cornerRadius: 25)
+                                    .fill(LinearGradient(Color.clear, Color.black)))
+                    )
+                    .frame(width: 350, height: 80)
+                    .onTapGesture {
+                        tapped.toggle()
+                    }
+            } else {
+                RoundedRectangle(cornerRadius: 25)
+                    .fill(Color.offWhite)
+                    .frame(width: 350, height: 80)
+                    .shadow(color: Color.black.opacity(0.2), radius: 5, x: 10, y: 10)
+                    .shadow(color: Color.white.opacity(0.4), radius: 5, x: -5, y: -5)
+                    .onTapGesture {
+                        tapped.toggle()
+                    }
+            }
+            Section {
+                NavigationLink(isActive: $tapped) {
+                    EmptyView()
+                } label: {
                     HStack {
                         Text(serverConnection.url)
                             .padding()
@@ -34,7 +63,7 @@ struct ServerRowView: View {
                             .font(.system(size: 12))
                         Text(serverConnection.time)
                             .font(.system(size: 12))
-                    }.scaledToFit()
+                    }
                 }
             }
         }

@@ -74,7 +74,8 @@ struct LocalView<T: ViewModel>: View {
                     }
                 }
             }
-        }.background(Color.offWhite)
+        }
+        .background(Color.offWhite)
         .navigationTitle("Local Connections")
     }
     

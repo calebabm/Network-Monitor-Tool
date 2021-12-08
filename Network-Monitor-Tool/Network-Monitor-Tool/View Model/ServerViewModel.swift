@@ -14,6 +14,17 @@ final class ServerViewModel: ViewModel {
     var serverConnections = [
         ServerConnection(url: "revelup.com", requestType: "POST", status: "404", time: "12:10"),
         ServerConnection(url: "revelup.com", requestType: "GET", status: "200", time: "1:30"),
+        ServerConnection(url: "revelup.com", requestType: "GET", status: "200", time: "2:33"),
+        ServerConnection(url: "revelup.com", requestType: "GET", status: "200", time: "2:33"),
+        ServerConnection(url: "revelup.com", requestType: "GET", status: "200", time: "2:33"),
+        ServerConnection(url: "revelup.com", requestType: "GET", status: "200", time: "2:33"),
+        ServerConnection(url: "revelup.com", requestType: "GET", status: "200", time: "2:33"),
+        ServerConnection(url: "revelup.com", requestType: "GET", status: "200", time: "2:33"),
+        ServerConnection(url: "revelup.com", requestType: "GET", status: "200", time: "2:33"),
+        ServerConnection(url: "revelup.com", requestType: "GET", status: "200", time: "2:33"),
+        ServerConnection(url: "revelup.com", requestType: "GET", status: "200", time: "2:33"),
+        ServerConnection(url: "revelup.com", requestType: "GET", status: "200", time: "2:33"),
+        ServerConnection(url: "revelup.com", requestType: "GET", status: "200", time: "2:33"),
         ServerConnection(url: "revelup.com", requestType: "GET", status: "200", time: "2:33")
     ]
     
