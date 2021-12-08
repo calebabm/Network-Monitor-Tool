@@ -12,26 +12,36 @@ struct LocalRowView: View {
     var localConnection: LocalConnection
     
     var body: some View {
-        Section {
-            NavigationLink {
-                EmptyView()
-            } label: {
-                HStack {
-                    Text(localConnection.state)
-                        .font(.system(size: 12))
-                    Text(localConnection.host)
-                        .font(.system(size: 12))
-                    VStack {
-                        ForEach(localConnection.clients, id: \.self) { client in
-                            Text(client)
+        ZStack {
+            Section {
+                NavigationLink {
+                    EmptyView()
+                } label: {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 25)
+                            .fill(Color.offWhite)
+                            .frame(width: 320, height: 80)
+                            .shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
+                            .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
+                        HStack {
+                            Text(localConnection.state)
                                 .font(.system(size: 12))
-                        }
-                    }
-                    .padding()
-                    Text(localConnection.time)
-                        .font(.system(size: 12))
-                }.scaledToFit()
-            }
+                            
+                            Text(localConnection.host)
+                                .font(.system(size: 12))
+                            VStack {
+                                ForEach(localConnection.clients, id: \.self) { client in
+                                    Text(client)
+                                        .font(.system(size: 12))
+                                }
+                            }
+                            .padding()
+                            Text(localConnection.time)
+                                .font(.system(size: 12))
+                        }.scaledToFit()
+                    }.scaledToFit()
+                }
+            }            
         }
     }
 }

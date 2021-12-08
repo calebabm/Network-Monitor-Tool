@@ -16,19 +16,26 @@ struct ServerRowView: View {
             NavigationLink {
                 EmptyView()
             } label: {
-                HStack {
-                    Text(serverConnection.url)
-                        .padding()
-                        .font(.system(size: 12))
-                    Text(serverConnection.requestType)
-                        .padding()
-                        .font(.system(size: 12))
-                    Text(serverConnection.status)
-                        .padding()
-                        .font(.system(size: 12))
-                    Text(serverConnection.time)
-                        .font(.system(size: 12))
-                }.scaledToFit()
+                ZStack {
+                    RoundedRectangle(cornerRadius: 25)
+                        .fill(Color.offWhite)
+                        .frame(width: 320, height: 80)
+                        .shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
+                        .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
+                    HStack {
+                        Text(serverConnection.url)
+                            .padding()
+                            .font(.system(size: 12))
+                        Text(serverConnection.requestType)
+                            .padding()
+                            .font(.system(size: 12))
+                        Text(serverConnection.status)
+                            .padding()
+                            .font(.system(size: 12))
+                        Text(serverConnection.time)
+                            .font(.system(size: 12))
+                    }.scaledToFit()
+                }
             }
         }
     }

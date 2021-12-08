@@ -13,7 +13,14 @@ struct LocalView<T: ViewModel>: View {
     @ObservedObject var viewModel: T
     
     var body: some View {
-        createView()
+        ZStack {
+            Color.offWhite
+                .ignoresSafeArea(.all)
+            createView()
+        }
+        .background(NavigationConfigurator { navigationController in
+            navigationController.navigationBar.barTintColor = UIColor(Color.offWhite)
+        })
     }
     
     func createView() -> some View {
@@ -24,27 +31,50 @@ struct LocalView<T: ViewModel>: View {
         let singleConnectionHeader =
         VStack {
             HStack {
-                Text("State").padding()
-                Text("Host").padding()
-                Text("Clients").padding()
-                Text("Time").padding()
+                Text("State")
+                    .padding()
+                    .font(.system(size: 14))
+                    .foregroundColor(.gray)
+                Text("Host")
+                    .padding()
+                    .font(.system(size: 14))
+                    .foregroundColor(.gray)
+                Text("Clients")
+                    .padding()
+                    .font(.system(size: 14))
+                    .foregroundColor(.gray)
+                Text("Time")
+                    .padding()
+                    .font(.system(size: 14))
+                    .foregroundColor(.gray)
             }
-            Text("Single Connections").frame(maxWidth: .infinity, alignment: .leading)
+            Text("Single Connections")
+                .font(.system(size: 14))
+                .foregroundColor(.gray)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.leading)
         }
         
-        return Form {
-            Section(header: singleConnectionHeader) {
-                List(viewModel.localConnections.filter { $0.clients.count == 1 }, id: \.id) { (localConnection) in
-                    LocalRowView(localConnection: localConnection)
+        return ScrollView {
+            LazyVStack {
+                Section(header: singleConnectionHeader) {
+                    ForEach(viewModel.localConnections.filter { $0.clients.count == 1 }, id: \.id) { (localConnection) in
+                        LocalRowView(localConnection: localConnection)
+                    }
+                }
+                Section(header:
+                            Text("Group Connections")
+                            .font(.system(size: 14))
+                            .foregroundColor(.gray)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.leading)
+                            .padding(.top)) {
+                    ForEach(viewModel.localConnections.filter { $0.clients.count > 1 }, id: \.id) { (localConnection) in
+                        LocalRowView(localConnection: localConnection)
+                    }
                 }
             }
-            
-            Section(header: Text("Group Connections")) {
-                List(viewModel.localConnections.filter { $0.clients.count > 1 }, id: \.id) { (localConnection) in
-                    LocalRowView(localConnection: localConnection)
-                }
-            }
-        }
+        }.background(Color.offWhite)
         .navigationTitle("Local Connections")
     }
     
