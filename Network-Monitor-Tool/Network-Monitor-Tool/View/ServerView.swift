@@ -18,9 +18,6 @@ struct ServerView<T: ViewModel>: View {
                 .ignoresSafeArea(.all)
             createView()
         }
-        .background(NavigationConfigurator { navigationController in
-            navigationController.navigationBar.barTintColor = UIColor(Color.offWhite)
-        })
     }
     
     func createView() -> some View {
