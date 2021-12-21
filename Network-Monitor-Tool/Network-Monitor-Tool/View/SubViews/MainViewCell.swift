@@ -24,6 +24,7 @@ struct MainViewCell<T: View>: View {
             }
         }
         .frame(width: 350, height: 350, alignment: .center)
+        
         createNeumorphic(
             element: view, shape: RoundedRectangle(cornerRadius: 25),
             frame: (width: 300, height: 270),

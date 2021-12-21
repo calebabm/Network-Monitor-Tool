@@ -24,4 +24,25 @@ struct CoordinatorService {
             EmptyView()
         }
     }
+    //    func fetchDataCompleted(data: Data) {
+    //        // logic of where to go
+    //        // if user is in state 1, router.route(to: .fetchData(data)
+    //        // if user is in state 2, presentView
+    //
+    //    }
 }
+
+
+
+//class Router {
+//
+//    lazy someDependancy:
+//
+//    init(with dependancies: DependencyContainer) {
+//        someDependancy =
+//    }
+//
+//    func route(to destination: Destination) {
+//
+//    }
+//}

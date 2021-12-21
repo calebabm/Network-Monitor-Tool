@@ -11,9 +11,33 @@ import SwiftUI
 struct Network_Monitor_ToolApp: App {
     var body: some Scene {
         WindowGroup {
+            var naviController = NavController()
             let coordinator = CoordinatorService()
-            let mainViewModel = MainViewModel(.dependencies(coordinator))
-            coordinator.presentView(with: mainViewModel)
+            let router = Router(navController: naviController)
+            //router update nav controller view controller view
+//            coordinator.setUp(_ router: router)
+//            let mainViewModel = MainViewModel(.dependencies(coordinator))
+            naviController.view
         }
     }
+}
+
+// in window group thing:
+// let navController
+// let dependencyContainer
+// let router(dependencyContainer, navController)
+// let coordinator(router)
+
+// coordinator.setup()
+
+// coordinator chooses where to go first, then the router constructs that view with it's dependancies from the dependency container
+
+
+struct NavController<T: View> {
+    lazy var view: T
+}
+
+
+struct Router {
+    var navController: NavController
 }

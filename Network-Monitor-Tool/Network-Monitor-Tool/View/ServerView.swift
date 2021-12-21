@@ -10,13 +10,22 @@ import SwiftUI
 struct ServerView<T: ViewModel>: View {
     
     @ObservedObject var viewModel: T
-    @State private var createRequestTapped = false
+    @State var addTapped = false
     
     var body: some View {
         ZStack {
             Color.offWhite
                 .ignoresSafeArea(.all)
             createView()
+                .toolbar {
+                    Button {
+                        addTapped.toggle()
+                    } label: {
+                        Text("+")
+                            .font(.system(size: 30))
+                    }
+                    
+                }
         }
     }
     

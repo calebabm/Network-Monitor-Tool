@@ -11,6 +11,7 @@ import Combine
 struct LocalView<T: ViewModel>: View {
     
     @ObservedObject var viewModel: T
+    @State var addTapped = false
     
     var body: some View {
         ZStack {
@@ -18,6 +19,10 @@ struct LocalView<T: ViewModel>: View {
                 .ignoresSafeArea(.all)
             createView()
         }
+    }
+    
+    func presentAddAlert() -> some View {
+        return AddLocalConnectionView()
     }
     
     func createView() -> some View {
@@ -74,6 +79,18 @@ struct LocalView<T: ViewModel>: View {
         }
         .background(Color.offWhite)
         .navigationTitle("Local Connections")
+        .toolbar {
+            Button {
+                addTapped = true
+            }
+        label: {
+            Text("+")
+                .font(.system(size: 30))
+        }
+        .sheet(isPresented: $addTapped) {
+            viewModel.addTapped
+            }
+        }
     }
     
     init(_ viewModel: T) {

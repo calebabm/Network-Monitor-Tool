@@ -43,6 +43,7 @@ struct ServerRowView: View {
             }
     }
 }
+
 struct ServerRowView_Previews: PreviewProvider {
     static var previews: some View {
         let connection = ServerConnection(url: "revelup.com/lucid-dream-machine", requestType: "POST", status: "404", time: "12:10")

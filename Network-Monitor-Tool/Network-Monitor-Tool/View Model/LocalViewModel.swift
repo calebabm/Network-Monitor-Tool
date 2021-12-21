@@ -10,6 +10,9 @@ import SwiftUI
 final class LocalViewModel: ViewModel {
     typealias Services = (networkService: NetworkService, coordinatorService: CoordinatorService)
     var dependencies: DependencyContainer<Services>
+    var addTapped: some View {
+        return AddLocalConnectionView()
+    }
     
     var localConnections = [
         LocalConnection(time: "12:18", state: "Online", host: "172.20.10.3", client: ["192.168.86.170"]),

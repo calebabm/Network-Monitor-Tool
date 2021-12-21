@@ -28,6 +28,7 @@
 		50C427E82758005600081281 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C427E72758005600081281 /* NetworkService.swift */; };
 		50C427F427582EAE00081281 /* LocalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C427F327582EAE00081281 /* LocalView.swift */; };
 		50C427F627582F5700081281 /* LocalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C427F527582F5700081281 /* LocalViewModel.swift */; };
+		50C692F32768080B0008F01B /* AddLocalConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C692F22768080B0008F01B /* AddLocalConnectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		50C427E72758005600081281 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		50C427F327582EAE00081281 /* LocalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalView.swift; sourceTree = "<group>"; };
 		50C427F527582F5700081281 /* LocalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalViewModel.swift; sourceTree = "<group>"; };
+		50C692F22768080B0008F01B /* AddLocalConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocalConnectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,9 +135,8 @@
 				50C427CF2757CDD700081281 /* MainView.swift */,
 				50C427F327582EAE00081281 /* LocalView.swift */,
 				5080556027599FE700722268 /* ServerView.swift */,
-				5083E367275FFA2C008CA0F9 /* MainViewCell.swift */,
-				5083E363275FCD73008CA0F9 /* LocalRowView.swift */,
-				5083E365275FF7E0008CA0F9 /* ServerRowView.swift */,
+				50C692F52768136D0008F01B /* SubViews */,
+				50C692F4276813330008F01B /* SheetViews */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -172,6 +173,24 @@
 				509B9A9F275EBBFC00E3BCEE /* ServerConnection.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		50C692F4276813330008F01B /* SheetViews */ = {
+			isa = PBXGroup;
+			children = (
+				50C692F22768080B0008F01B /* AddLocalConnectionView.swift */,
+			);
+			path = SheetViews;
+			sourceTree = "<group>";
+		};
+		50C692F52768136D0008F01B /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				5083E367275FFA2C008CA0F9 /* MainViewCell.swift */,
+				5083E363275FCD73008CA0F9 /* LocalRowView.swift */,
+				5083E365275FF7E0008CA0F9 /* ServerRowView.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +286,7 @@
 			files = (
 				50C427F427582EAE00081281 /* LocalView.swift in Sources */,
 				50C427D02757CDD700081281 /* MainView.swift in Sources */,
+				50C692F32768080B0008F01B /* AddLocalConnectionView.swift in Sources */,
 				5083E368275FFA2C008CA0F9 /* MainViewCell.swift in Sources */,
 				50C427E42758000E00081281 /* DependencyContainer.swift in Sources */,
 				50C427E62758004000081281 /* CoordinatorService.swift in Sources */,
