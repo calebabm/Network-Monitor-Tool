@@ -10,61 +10,57 @@ import SwiftUI
 @main
 struct Network_Monitor_ToolApp: App {
     var body: some Scene {
-        WindowGroup { 
-            var navController = NavController()
-            var coordinator = Coordinator()
-            let router = Router(navController: navController)
-            //router update nav controller view controller view
-//            coordinator.setup(router)
-//            let mainViewModel = MainViewModel(.dependencies(coordinator))
-            navController.view
+        WindowGroup { () -> AnyView in
+            setup()
         }
     }
 }
 
-// in window group thing:
-// let navController
-// let dependencyContainer
-// let router(dependencyContainer, navController)
-// let coordinator(router)
 
-// coordinator.setup()
-
-// coordinator chooses where to go first, then the router constructs that view with it's dependancies from the dependency container
-
+func setup() -> AnyView {
+    let navController = NavController(view: AnyView(EmptyView()))
+    let router = Router(navController: navController)
+    var coordinator = Coordinator(router: router)
+    coordinator.setup()
+    return navController.view
+}
 
 enum AppState {
     case initialLaunch
 }
 
-struct NavController {
-    var view: AnyView? = nil
+class NavController<T> {
+    var view: T
+    
+    init(view: T) {
+        self.view = view
+    }
 }
 
 
 struct Router {
-    var navController: NavController
+    var navController: NavController<AnyView>
     
     mutating func constructDependencies(_ state: AppState) {
         switch state {
         case .initialLaunch:
-            //TODO: Construct the depenecies for the view with the dependency containter
-//            let viewModel= MainViewModel(T##dependencies: DependencyContainer<MainViewModel.Services>##DependencyContainer<MainViewModel.Services>)
+            //TODO: Construct the dependecies for the view with the dependency containter
             let mainViewModel = MainViewModel(.dependencies(CoordinatorService()))
-            self.navController.view = MainView(mainViewModel) as? AnyView
+            let viewController = MainView(mainViewModel)
+            navController.view = AnyView(viewController)
+            print(navController.view)
         }
-        
     }
 }
 
 
 struct Coordinator {
     
-    private(set) var router: Router? = nil
+    var router: Router
     var appState: AppState = .initialLaunch
     
-    mutating func setup(_ router: Router?) {
-        self.router?.constructDependencies(self.appState)
+    mutating func setup() {
+        self.router.constructDependencies(self.appState)
     }
     
     //    func fetchDataCompleted(data: Data) {
@@ -74,19 +70,3 @@ struct Coordinator {
     //
     //    }
 }
-
-
-
-//class Router {
-//
-//    lazy someDependancy:
-//
-//    init(with dependancies: DependencyContainer) {
-//        someDependancy =
-//    }
-//
-//    func route(to destination: Destination) {
-//
-//    }
-//}
-
