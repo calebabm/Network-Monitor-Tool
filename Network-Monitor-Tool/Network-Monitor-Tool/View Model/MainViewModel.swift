@@ -8,7 +8,7 @@
 import SwiftUI
 
 final class MainViewModel: ViewModel {
-    typealias Services = CoordinatorService
+    typealias Services = Coordinator
     var dependencies: DependencyContainer<Services>
     
     var dataSource = [
@@ -19,9 +19,9 @@ final class MainViewModel: ViewModel {
     @ViewBuilder
     func selected(cell: CellData) -> some View {
         if cell.id == dataSource[0].id {
-            dependencies.services.presentView(with: LocalViewModel(.dependencies((NetworkService(), CoordinatorService()))))
+            dependencies.services.presentView(with: LocalViewModel(.dependencies((NetworkService(), Coordinator()))))
         } else {
-            dependencies.services.presentView(with: ServerViewModel(.dependencies((NetworkService(), CoordinatorService()))))
+            dependencies.services.presentView(with: ServerViewModel(.dependencies((NetworkService(), Coordinator()))))
         }
     }
     
