@@ -8,7 +8,7 @@
 import SwiftUI
 
 final class ServerViewModel: ViewModel {
-    typealias Services = (networkService: NetworkService, coordinatorService: CoordinatorService)
+    typealias Services = (networkService: NetworkService, coordinatorService: Coordinator)
     var dependencies: DependencyContainer<Services>
     
     var serverConnections = [

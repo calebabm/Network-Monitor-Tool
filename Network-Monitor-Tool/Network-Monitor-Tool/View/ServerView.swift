@@ -73,7 +73,9 @@ struct ServerView<T: ViewModel>: View {
 
 struct InternetView_Previews: PreviewProvider {
     static var previews: some View {
-        let services = (networkService: NetworkService(), coordinatorService: CoordinatorService())
+        let viewFlowController = ViewFlowController(view: AnyView(EmptyView()))
+        let router = Router(viewFlowController: viewFlowController)
+        let services = (networkService: NetworkService(), coordinatorService: Coordinator(router: router))
         let viewModel = ServerViewModel(.dependencies(services))
         ServerView(viewModel)
     }

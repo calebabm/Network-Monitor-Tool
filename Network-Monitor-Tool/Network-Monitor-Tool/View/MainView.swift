@@ -44,7 +44,9 @@ struct MainView<T: ViewModel>: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        let services = CoordinatorService()
+        let viewFlowController = ViewFlowController(view: AnyView(EmptyView()))
+        let router = Router(viewFlowController: viewFlowController)
+        let services = Coordinator(router: router)
         let viewModel = MainViewModel(.dependencies(services))
         MainView(viewModel)
     }

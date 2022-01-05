@@ -9,4 +9,6 @@ import Foundation
 
 enum AppState {
     case initialLaunch
+    case localView
+    case serverView
 }

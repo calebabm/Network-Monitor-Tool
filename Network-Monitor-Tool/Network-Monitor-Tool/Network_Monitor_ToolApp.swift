@@ -16,11 +16,11 @@ struct Network_Monitor_ToolApp: App {
     }
     
     func setup() -> AnyView {
-        let navController = ViewFlowController(view: AnyView(EmptyView()))
-        let router = Router(navController: navController)
+        let viewFlowController = ViewFlowController(view: AnyView(EmptyView()))
+        let router = Router(viewFlowController: viewFlowController)
         var coordinator = Coordinator(router: router)
         coordinator.setup()
-        return navController.view
+        return viewFlowController.view
     }
 }
 

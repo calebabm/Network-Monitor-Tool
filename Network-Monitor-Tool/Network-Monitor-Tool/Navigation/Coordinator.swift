@@ -7,12 +7,16 @@
 
 import SwiftUI
 
-struct Coordinator {
+class Coordinator {
     
     var router: Router
     var appState: AppState = .initialLaunch
     
-    mutating func setup() {
+    func updateState(state: AppState) {
+        self.appState = state
+    }
+    
+    func setup() {
         self.router.constructDependencies(self.appState)
     }
     
@@ -22,5 +26,11 @@ struct Coordinator {
     //        // if user is in state 2, presentView
     //
     //    }
+    
+    
+    internal init(router: Router, appState: AppState = .initialLaunch) {
+        self.router = router
+        self.appState = appState
+    }
 }
 

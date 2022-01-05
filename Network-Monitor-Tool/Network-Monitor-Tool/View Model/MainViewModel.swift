@@ -16,13 +16,17 @@ final class MainViewModel: ViewModel {
         CellData(title: "Server")
     ]
     
-    @ViewBuilder
-    func selected(cell: CellData) -> some View {
-        if cell.id == dataSource[0].id {
-            dependencies.services.presentView(with: LocalViewModel(.dependencies((NetworkService(), Coordinator()))))
+    func selected(cell: CellData) -> AnyView{
+        if cell.title == "Local" {
+            dependencies.services.updateState(state: .localView)
+            dependencies.services.setup()
         } else {
-            dependencies.services.presentView(with: ServerViewModel(.dependencies((NetworkService(), Coordinator()))))
+            dependencies.services.updateState(state: .serverView)
+            dependencies.services.setup()
         }
+       //coordinator update state to local or server
+        let viewFlowController = dependencies.services.router.viewFlowController
+        return viewFlowController.view
     }
     
     required init(_ dependencies: DependencyContainer<Services>) {
