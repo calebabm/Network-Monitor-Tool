@@ -16,7 +16,7 @@ final class MainViewModel: ViewModel {
         CellData(title: "Server")
     ]
     
-    func selected(cell: CellData) -> AnyView{
+    func selected(cell: CellData) -> AnyView {
         if cell.title == "Local" {
             dependencies.services.updateState(state: .localView)
             dependencies.services.setup()
@@ -24,7 +24,7 @@ final class MainViewModel: ViewModel {
             dependencies.services.updateState(state: .serverView)
             dependencies.services.setup()
         }
-       //coordinator update state to local or server
+        
         let viewFlowController = dependencies.services.router.viewFlowController
         return viewFlowController.view
     }

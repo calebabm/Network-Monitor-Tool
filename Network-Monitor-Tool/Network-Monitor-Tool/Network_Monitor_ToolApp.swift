@@ -18,7 +18,7 @@ struct Network_Monitor_ToolApp: App {
     func setup() -> AnyView {
         let viewFlowController = ViewFlowController(view: AnyView(EmptyView()))
         let router = Router(viewFlowController: viewFlowController)
-        var coordinator = Coordinator(router: router)
+        let coordinator = Coordinator(router: router)
         coordinator.setup()
         return viewFlowController.view
     }

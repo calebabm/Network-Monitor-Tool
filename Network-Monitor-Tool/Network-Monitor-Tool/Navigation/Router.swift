@@ -13,7 +13,7 @@ struct Router {
     mutating func constructDependencies(_ state: AppState) {
         switch state {
         case .initialLaunch:
-            //TODO: Construct the dependecies for the view with the dependency containter
+            //TODO: Construct the dependencies for the view with the dependency container
             let mainViewModel = MainViewModel(.dependencies(Coordinator(router: self)))
             let viewController = MainView(mainViewModel)
             viewFlowController.view = AnyView(viewController)
