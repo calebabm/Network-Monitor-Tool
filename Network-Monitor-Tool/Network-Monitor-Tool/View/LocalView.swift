@@ -8,9 +8,9 @@
 import SwiftUI
 import Combine
 
-struct LocalView<T: ViewModel>: View {
+struct LocalView: View {
     
-    @ObservedObject var viewModel: T
+    private(set) var viewModel: LocalViewModel
     @State var addTapped = false
     
     var body: some View {
@@ -26,10 +26,6 @@ struct LocalView<T: ViewModel>: View {
     }
     
     func createView() -> some View {
-        guard let viewModel = viewModel as? LocalViewModel else {
-            fatalError("Log: Unable to cast generic viewModel to direct type")
-        }
-        
         let singleConnectionHeader =
         VStack {
             HStack {
@@ -93,7 +89,7 @@ struct LocalView<T: ViewModel>: View {
         }
     }
     
-    init(_ viewModel: T) {
+    init(_ viewModel: LocalViewModel) {
         self.viewModel = viewModel
     }
 }
@@ -102,8 +98,7 @@ struct LocalView_Previews: PreviewProvider {
     static var previews: some View {
         let viewFlowController = ViewFlowController(view: AnyView(EmptyView()))
         let router = Router(viewFlowController: viewFlowController)
-        let services = (networkService: NetworkService(), coordinatorService: Coordinator(router: router))
-        let viewModel = LocalViewModel(.dependencies(services))
+        let viewModel = LocalViewModel(Coordinator(router: router), NetworkService())
         LocalView(viewModel)
     }
 }

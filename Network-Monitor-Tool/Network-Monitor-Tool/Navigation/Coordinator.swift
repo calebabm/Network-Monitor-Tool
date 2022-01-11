@@ -10,7 +10,11 @@ import SwiftUI
 class Coordinator {
     
     var router: Router
-    private(set) var appState: AppState = .initialLaunch
+    private(set) var appState: AppState = .initialLaunch {
+        didSet {
+            setup()
+        }
+    }
     
     func updateState(state: AppState) {
         self.appState = state

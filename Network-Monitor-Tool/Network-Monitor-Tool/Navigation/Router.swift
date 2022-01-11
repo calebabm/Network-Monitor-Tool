@@ -14,15 +14,15 @@ struct Router {
         switch state {
         case .initialLaunch:
             //TODO: Construct the dependencies for the view with the dependency container
-            let mainViewModel = MainViewModel(.dependencies(Coordinator(router: self)))
+            let mainViewModel = MainViewModel(Coordinator(router: self))
             let viewController = MainView(mainViewModel)
             viewFlowController.view = AnyView(viewController)
         case .localView:
-            let localViewModel = LocalViewModel(.dependencies((networkService: NetworkService(), coordinatorService: Coordinator(router: self))))
+            let localViewModel = LocalViewModel(Coordinator(router: self), NetworkService())
             let viewController = LocalView(localViewModel)
             viewFlowController.view = AnyView(viewController)
         case .serverView:
-            let serverViewModel = ServerViewModel(.dependencies((networkService: NetworkService(), coordinatorService: Coordinator(router: self))))
+            let serverViewModel = ServerViewModel(Coordinator(router: self), NetworkService())
             let viewController = ServerView(serverViewModel)
             viewFlowController.view = AnyView(viewController)
         }

@@ -7,9 +7,8 @@
 
 import SwiftUI
 
-final class MainViewModel: ViewModel {
-    typealias Services = Coordinator
-    var dependencies: DependencyContainer<Services>
+final class MainViewModel {
+    private(set) var coordinator: Coordinator
     
     var dataSource = [
         CellData(title: "Local"),
@@ -18,18 +17,16 @@ final class MainViewModel: ViewModel {
     
     func selected(cell: CellData) -> AnyView {
         if cell.title == "Local" {
-            dependencies.services.updateState(state: .localView)
-            dependencies.services.setup()
+            coordinator.updateState(state: .localView)
         } else {
-            dependencies.services.updateState(state: .serverView)
-            dependencies.services.setup()
+            coordinator.updateState(state: .serverView)
         }
         
-        let viewFlowController = dependencies.services.router.viewFlowController
+        let viewFlowController = coordinator.router.viewFlowController
         return viewFlowController.view
     }
     
-    required init(_ dependencies: DependencyContainer<Services>) {
-        self.dependencies = dependencies
+    required init(_ coordinator: Coordinator) {
+        self.coordinator = coordinator
     }
 }
