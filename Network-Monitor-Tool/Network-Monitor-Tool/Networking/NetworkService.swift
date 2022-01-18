@@ -6,5 +6,20 @@
 //
 
 import Foundation
+import NetKitLocal
 
-struct NetworkService {}
+struct NetworkService {
+    let local = LocalNetworkService()
+    
+    func sendData() {
+        local.send(data: Data(), to: "192.168.86.170") { result in
+            switch result {
+            case .success:
+                print("successful send of data")
+            case .failure(let error):
+                fatalError("send error: \(error)")
+            }
+        }
+    }
+    
+}

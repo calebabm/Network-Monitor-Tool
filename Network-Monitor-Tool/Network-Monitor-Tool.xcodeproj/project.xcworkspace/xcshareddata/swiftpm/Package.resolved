@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "NetKitLocal",
+        "repositoryURL": "https://github.com/calebabm/NetKitLocal",
+        "state": {
+          "branch": "dev",
+          "revision": "250c67d5f92c8a8e418cb90d2917b83c8420b3b8",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		505A0566278E1655003B0AFF /* NetKitLocal in Frameworks */ = {isa = PBXBuildFile; productRef = 505A0565278E1655003B0AFF /* NetKitLocal */; };
 		5080556127599FE700722268 /* ServerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5080556027599FE700722268 /* ServerView.swift */; };
 		5080556327599FFE00722268 /* ServerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5080556227599FFE00722268 /* ServerViewModel.swift */; };
 		5083E364275FCD73008CA0F9 /* LocalRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5083E363275FCD73008CA0F9 /* LocalRowView.swift */; };
@@ -66,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				505A0566278E1655003B0AFF /* NetKitLocal in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +218,9 @@
 			dependencies = (
 			);
 			name = "Network-Monitor-Tool";
+			packageProductDependencies = (
+				505A0565278E1655003B0AFF /* NetKitLocal */,
+			);
 			productName = "Network-Monitor-Tool";
 			productReference = 50C427CA2757CDD700081281 /* Network-Monitor-Tool.app */;
 			productType = "com.apple.product-type.application";
@@ -244,6 +249,9 @@
 				Base,
 			);
 			mainGroup = 50C427C12757CDD700081281;
+			packageReferences = (
+				505A0564278E1655003B0AFF /* XCRemoteSwiftPackageReference "NetKitLocal" */,
+			);
 			productRefGroup = 50C427CB2757CDD700081281 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -516,6 +524,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		505A0564278E1655003B0AFF /* XCRemoteSwiftPackageReference "NetKitLocal" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/calebabm/NetKitLocal";
+			requirement = {
+				branch = dev;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		505A0565278E1655003B0AFF /* NetKitLocal */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 505A0564278E1655003B0AFF /* XCRemoteSwiftPackageReference "NetKitLocal" */;
+			productName = NetKitLocal;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 50C427C22757CDD700081281 /* Project object */;
 }

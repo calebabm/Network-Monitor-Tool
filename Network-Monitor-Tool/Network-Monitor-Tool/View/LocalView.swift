@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Combine
 
 struct LocalView: View {
     
@@ -26,6 +25,7 @@ struct LocalView: View {
     }
     
     func createView() -> some View {
+        viewModel.networkService.sendData()
         let singleConnectionHeader =
         VStack {
             HStack {
