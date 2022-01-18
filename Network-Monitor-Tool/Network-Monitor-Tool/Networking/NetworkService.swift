@@ -15,9 +15,9 @@ struct NetworkService {
         local.send(data: Data(), to: "192.168.86.170") { result in
             switch result {
             case .success:
-                print("successful send of data")
+                print("connection was established")
             case .failure(let error):
-                fatalError("send error: \(error)")
+                fatalError("connection error: \(error)")
             }
         }
     }
