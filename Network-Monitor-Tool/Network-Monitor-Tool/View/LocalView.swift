@@ -25,7 +25,7 @@ struct LocalView: View {
     }
     
     func createView() -> some View {
-        //viewModel.networkService.sendData()
+        viewModel.networkService.hostConnections()
         let singleConnectionHeader =
         VStack {
             HStack {

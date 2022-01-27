@@ -7,5 +7,12 @@
 
 import Foundation
 import NetKitLocal
+import Network
 
-struct NetworkService {}
+struct NetworkService {
+    let service = LocalNetworkService()
+    
+    func hostConnections() {
+        service.hostConnections(on: 12345)
+    }
+}
