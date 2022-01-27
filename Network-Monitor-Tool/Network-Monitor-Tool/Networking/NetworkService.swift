@@ -13,6 +13,6 @@ struct NetworkService {
     let service = LocalNetworkService()
     
     func hostConnections() {
-        service.hostConnections(on: 12345)
+//        service.hostConnections(on: 12345)
     }
 }
