@@ -13,18 +13,18 @@ struct NetworkService {
     let service = LocalNetworkService(.client)
     
     func hostConnection() {
-        let ipString = "192.168.86.185"
-        let port = 49151
         do {
-            try service.establishConnection(to: ipString, on: port)
+            try service.hostConnections(on: 49151)
         } catch {
             print(error)
         }
     }
     
     func connectToHost() {
+        let ipString = "192.168.86.185"
+        let port = 49151
         do {
-            try service.hostConnections(on: 49151)
+            try service.establishConnection(to: ipString, on: port)
         } catch {
             print(error)
         }
