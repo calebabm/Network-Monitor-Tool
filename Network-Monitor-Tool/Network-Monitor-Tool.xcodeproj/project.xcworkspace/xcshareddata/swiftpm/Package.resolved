@@ -5,8 +5,8 @@
         "package": "NetKitLocal",
         "repositoryURL": "https://github.com/calebabm/NetKitLocal",
         "state": {
-          "branch": "feature/combine-observable",
-          "revision": "646382853bec3429979d5675ffeb1374391a0161",
+          "branch": "feature/send-receive",
+          "revision": "2face6238c65426e94183b8dede2d19d112ad4c5",
           "version": null
         }
       }

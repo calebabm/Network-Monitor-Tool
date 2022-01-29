@@ -530,7 +530,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/calebabm/NetKitLocal";
 			requirement = {
-				branch = "feature/combine-observable";
+				branch = "feature/send-receive";
 				kind = branch;
 			};
 		};

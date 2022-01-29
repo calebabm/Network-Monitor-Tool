@@ -12,17 +12,9 @@ import Network
 struct NetworkService {
     let service = LocalNetworkService(.client)
     
-    func hostConnection() {
-        do {
-            try service.hostConnections(on: 49151)
-        } catch {
-            print(error)
-        }
-    }
-    
     func connectToHost() {
         let ipString = "192.168.86.185"
-        let port = 49151
+        let port = 49150
         do {
             try service.establishConnection(to: ipString, on: port)
         } catch {
