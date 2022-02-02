@@ -7,25 +7,26 @@
 
 import SwiftUI
 
-final class MainViewModel: ViewModel {
-    typealias Services = CoordinatorService
-    var dependencies: DependencyContainer<Services>
+final class MainViewModel {
+    private(set) var coordinator: Coordinator
     
     var dataSource = [
         CellData(title: "Local"),
         CellData(title: "Server")
     ]
     
-    @ViewBuilder
-    func selected(cell: CellData) -> some View {
-        if cell.id == dataSource[0].id {
-            dependencies.services.presentView(with: LocalViewModel(.dependencies((NetworkService(), CoordinatorService()))))
+    func selected(cell: CellData) -> AnyView {
+        if cell.title == "Local" {
+            coordinator.updateState(state: .localView)
         } else {
-            dependencies.services.presentView(with: ServerViewModel(.dependencies((NetworkService(), CoordinatorService()))))
+            coordinator.updateState(state: .serverView)
         }
+        
+        let viewFlowController = coordinator.router.viewFlowController
+        return viewFlowController.view
     }
     
-    required init(_ dependencies: DependencyContainer<Services>) {
-        self.dependencies = dependencies
+    required init(_ coordinator: Coordinator) {
+        self.coordinator = coordinator
     }
 }

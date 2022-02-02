@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-final class ServerViewModel: ViewModel {
-    typealias Services = (networkService: NetworkService, coordinatorService: CoordinatorService)
-    var dependencies: DependencyContainer<Services>
+final class ServerViewModel {
+    private(set) var coordinator: Coordinator
+    private(set) var networkService: NetworkService
     
     var serverConnections = [
         ServerConnection(url: "revelup.com", requestType: "POST", status: "404", time: "12:10"),
@@ -28,7 +28,8 @@ final class ServerViewModel: ViewModel {
         ServerConnection(url: "revelup.com", requestType: "GET", status: "200", time: "2:33")
     ]
     
-    required init(_ dependencies: DependencyContainer<Services>) {
-        self.dependencies = dependencies
+    required init(_ coordinator: Coordinator, _ networkService: NetworkService) {
+        self.coordinator = coordinator
+        self.networkService = networkService
     }
 }

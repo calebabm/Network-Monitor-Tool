@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct MainView<T: ViewModel>: View {
+struct MainView: View {
     
-    private(set) var viewModel: T
+    private(set) var viewModel: MainViewModel
     
     var body: some View {
         NavigationView {
@@ -22,10 +22,6 @@ struct MainView<T: ViewModel>: View {
     }
     
     func createView() -> some View {
-        guard let viewModel = viewModel as? MainViewModel else {
-            fatalError("Log: Unable to cast generic viewModel to direct type")
-        }
-        
         return ScrollView {
             LazyVStack {
                 ForEach(viewModel.dataSource, id: \.id) { (cell) in
@@ -37,15 +33,17 @@ struct MainView<T: ViewModel>: View {
         .navigationBarTitleDisplayMode(.inline)
     }
     
-    init(_ viewModel: T) {
+    init(_ viewModel: MainViewModel) {
         self.viewModel = viewModel
     }
 }
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        let services = CoordinatorService()
-        let viewModel = MainViewModel(.dependencies(services))
+        let viewFlowController = ViewFlowController(view: AnyView(EmptyView()))
+        let router = Router(viewFlowController: viewFlowController)
+        let coordinator = Coordinator(router: router)
+        let viewModel = MainViewModel(coordinator)
         MainView(viewModel)
     }
 }

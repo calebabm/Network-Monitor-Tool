@@ -7,9 +7,13 @@
 
 import SwiftUI
 
-final class LocalViewModel: ViewModel {
-    typealias Services = (networkService: NetworkService, coordinatorService: CoordinatorService)
-    var dependencies: DependencyContainer<Services>
+final class LocalViewModel {
+    private(set) var coordinator: Coordinator
+    private(set) var networkService: NetworkService
+    
+    var addTapped: some View {
+        return AddLocalConnectionView()
+    }
     
     var localConnections = [
         LocalConnection(time: "12:18", state: "Online", host: "172.20.10.3", client: ["192.168.86.170"]),
@@ -30,7 +34,8 @@ final class LocalViewModel: ViewModel {
         LocalConnection(time: "12:02", state: "Offline", host: "172.20.10.3", client: ["192.168.86.170", "192.168.86.170", "192.168.86.170"])
     ]
     
-    required init(_ dependencies: DependencyContainer<Services>) {
-        self.dependencies = dependencies
+    required init(_ coordinator: Coordinator, _ networkService: NetworkService) {
+        self.coordinator = coordinator
+        self.networkService = networkService
     }
 }

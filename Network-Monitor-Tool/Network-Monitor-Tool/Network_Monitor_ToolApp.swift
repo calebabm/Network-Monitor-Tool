@@ -10,10 +10,17 @@ import SwiftUI
 @main
 struct Network_Monitor_ToolApp: App {
     var body: some Scene {
-        WindowGroup {
-            let coordinator = CoordinatorService()
-            let mainViewModel = MainViewModel(.dependencies(coordinator))
-            coordinator.presentView(with: mainViewModel)
+        WindowGroup { () -> AnyView in
+            setup()
         }
     }
+    
+    func setup() -> AnyView {
+        let viewFlowController = ViewFlowController(view: AnyView(EmptyView()))
+        let router = Router(viewFlowController: viewFlowController)
+        let coordinator = Coordinator(router: router)
+        coordinator.setup()
+        return viewFlowController.view
+    }
 }
+

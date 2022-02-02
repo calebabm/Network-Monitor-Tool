@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+//TODO: Create a custom model to create Neumorphic elements
 func createNeumorphic<T: View, S: Shape>(element: T, shape: S, frame: (width: CGFloat, height: CGFloat), isSelected: Bool, onTap: @escaping () -> Void) -> some View {
     return ZStack {
         if isSelected {

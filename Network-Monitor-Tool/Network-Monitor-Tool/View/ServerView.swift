@@ -7,24 +7,29 @@
 
 import SwiftUI
 
-struct ServerView<T: ViewModel>: View {
+struct ServerView: View {
     
-    @ObservedObject var viewModel: T
-    @State private var createRequestTapped = false
+    private(set) var viewModel: ServerViewModel
+    @State var addTapped = false
     
     var body: some View {
         ZStack {
             Color.offWhite
                 .ignoresSafeArea(.all)
             createView()
+                .toolbar {
+                    Button {
+                        addTapped.toggle()
+                    } label: {
+                        Text("+")
+                            .font(.system(size: 30))
+                    }
+                    
+                }
         }
     }
     
     func createView() -> some View {
-        guard let viewModel = viewModel as? ServerViewModel else {
-            fatalError("Log: Unable to cast generic viewModel to direct type")
-        }
-        
         let header =
         HStack {
             Text("URL")
@@ -54,18 +59,20 @@ struct ServerView<T: ViewModel>: View {
                 }
                 
             }
-        }.navigationTitle("Server Requests")
+        }
+        .navigationTitle("Server Requests")
     }
     
-    init(_ viewModel: T) {
+    init(_ viewModel: ServerViewModel) {
         self.viewModel = viewModel
     }
 }
 
 struct InternetView_Previews: PreviewProvider {
     static var previews: some View {
-        let services = (networkService: NetworkService(), coordinatorService: CoordinatorService())
-        let viewModel = ServerViewModel(.dependencies(services))
+        let viewFlowController = ViewFlowController(view: AnyView(EmptyView()))
+        let router = Router(viewFlowController: viewFlowController)
+        let viewModel = ServerViewModel(Coordinator(router: router), NetworkService())
         ServerView(viewModel)
     }
 }

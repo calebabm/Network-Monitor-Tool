@@ -6,11 +6,11 @@
 //
 
 import SwiftUI
-import Combine
 
-struct LocalView<T: ViewModel>: View {
+struct LocalView: View {
     
-    @ObservedObject var viewModel: T
+    private(set) var viewModel: LocalViewModel
+    @State var addTapped = false
     
     var body: some View {
         ZStack {
@@ -20,11 +20,12 @@ struct LocalView<T: ViewModel>: View {
         }
     }
     
+    func presentAddAlert() -> some View {
+        return AddLocalConnectionView()
+    }
+    
     func createView() -> some View {
-        guard let viewModel = viewModel as? LocalViewModel else {
-            fatalError("Log: Unable to cast generic viewModel to direct type")
-        }
-        
+        viewModel.networkService.connectToHost()
         let singleConnectionHeader =
         VStack {
             HStack {
@@ -74,17 +75,30 @@ struct LocalView<T: ViewModel>: View {
         }
         .background(Color.offWhite)
         .navigationTitle("Local Connections")
+        .toolbar {
+            Button {
+                addTapped = true
+            }
+        label: {
+            Text("+")
+                .font(.system(size: 30))
+        }
+        .sheet(isPresented: $addTapped) {
+            viewModel.addTapped
+            }
+        }
     }
     
-    init(_ viewModel: T) {
+    init(_ viewModel: LocalViewModel) {
         self.viewModel = viewModel
     }
 }
 
 struct LocalView_Previews: PreviewProvider {
     static var previews: some View {
-        let services = (networkService: NetworkService(), coordinatorService: CoordinatorService())
-        let viewModel = LocalViewModel(.dependencies(services))
+        let viewFlowController = ViewFlowController(view: AnyView(EmptyView()))
+        let router = Router(viewFlowController: viewFlowController)
+        let viewModel = LocalViewModel(Coordinator(router: router), NetworkService())
         LocalView(viewModel)
     }
 }
